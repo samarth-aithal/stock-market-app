@@ -22,17 +22,17 @@ export default function CardBanner(){
                 setGoogleData({
                     name : res1.data.Name,
                     symbol : res1.data.Symbol,
-                    stock: res1.data.PERatio * res1.data.EPS
+                    stock: Math.round(res1.data.PERatio * res1.data.EPS)
                 });
                 setFbdata({
                     name : res2.data.Name,
                     symbol : res2.data.Symbol,
-                    stock: res2.data.PERatio * res2.data.EPS
+                    stock: Math.round(res2.data.PERatio * res2.data.EPS)
                 });
                 setAmazonData({
                     name : res3.data.Name,
                     symbol : res3.data.Symbol,
-                    stock: res3.data.PERatio * res3.data.EPS
+                    stock: Math.round(res3.data.PERatio * res3.data.EPS)
                 })
 
                 console.log('gooleData',gooleData);

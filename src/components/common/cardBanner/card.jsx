@@ -6,7 +6,7 @@ export default function Card(props){
         <div className='float-left card'>
             <div style={{fontWeight:'bold'}}>{props.symbol}</div>
             <img  className='banner' src={props.src} />
-            <div className='stock'>${props.stock} </div>
+            <div className='stock'>{props.stock} USD </div>
         </div>
     )
 }
