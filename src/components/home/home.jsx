@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import axios from 'axios';
+import Navbar from '../common/navbar';
 import CardBanner from '../common/cardBanner/cardBanner';
 import Table from '../common/table/table';
 import SearchBar from '../common/searchBar/searchBar';
@@ -83,6 +84,7 @@ export default function Home(){
 
 
 
+    // mock data has been used since only 5 requests can be made in API per minute
     
     
         const filteredData = mockData.filter(company => {
@@ -93,6 +95,8 @@ export default function Home(){
 
     
     return(
+        <Fragment>
+        <Navbar />
         <div className='page-layout'>
             
            
@@ -108,5 +112,6 @@ export default function Home(){
                 subHeader={true}
             />
         </div>
+        </Fragment>
     )
 }

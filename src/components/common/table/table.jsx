@@ -71,7 +71,7 @@ export default function Table(props){
                         subHeaderAlign={ 'left' }
                         customStyles={customStyles}
                         onSelectedRowsChange={updateState}
-                        style={{ borderRadius:'6px', boxShadow:' 0 2px 9px 0 rgba(40,44,51,0.26);'}}
+                        style={{ borderRadius:'6px', boxShadow:' 0 2px 9px 0 rgba(40,44,51,0.26)'}}
                         />
                 </Fragment> :<div>Data Not found</div> }
 
