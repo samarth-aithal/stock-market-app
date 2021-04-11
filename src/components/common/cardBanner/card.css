@@ -1,0 +1,22 @@
+.card{
+    height: 180px;
+    width: 250px; 
+    background-color: cornsilk;
+    padding: 20px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    
+     
+    
+ }
+
+ .banner{
+     height: 50px;
+     width: 50px;
+     float: right;
+ }
+
+ .stock{
+     margin-top:60px;
+     
+ }
