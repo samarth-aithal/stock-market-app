@@ -8,7 +8,7 @@ import {mockData} from '../common/table/tableColumnConfig';
 import '../../common/common.css';
 export default function Home(){
 
-    const[searchTerm, setSearchTerm] = useState(' ');
+    const[searchTerm, setSearchTerm] = useState('');
 
     const [gooleData, setGoogleData] = useState({});
     const [ fbData, setFbdata] = useState({});
@@ -91,6 +91,7 @@ export default function Home(){
             return company.companyName.toLowerCase().includes(searchTerm.toLowerCase())
         })
        
+        console.log('filtered Data', filteredData);
     
 
     

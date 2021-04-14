@@ -1,4 +1,5 @@
 import React, {Fragment, useState, useMemo, useLayoutEffect, useCallback} from 'react';
+import axios from 'axios';
 import DataTable from 'react-data-table-component';
 import ViewButton from '../../home/viewButton';
 import SaveButton from '../../home/savebutton';
@@ -17,8 +18,20 @@ export default function Table(props){
 
     const[savedStatus, setSavedStatus] = useState();
 
-    const statusHandler = () =>{
-        setSavedStatus(!savedStatus);
+    const statusHandler = (rowData) =>{
+        const stock = {
+            name:rowData.name,
+            symbol: rowData.symbol,
+            marketcap : rowData.marketcap,
+            currentPrice: rowData.currentPrice
+        }
+
+        axios.post('localhost:3001', stock)
+            .then(res => {
+                console.log(res);
+            })
+        setSavedStatus(true);
+
     }
 
     const updateState = useCallback(state=>{console.log(state)},[])
@@ -39,7 +52,7 @@ export default function Table(props){
             name:" ",
             cell: 
             row=><div>{!row.saved ? (
-                <SaveButton saveFn={statusHandler} />):
+                <SaveButton saveFn={ statusHandler(row)}  />):
                 (<ViewButton />)}
             </div>,
             ignoreRowClick: true,
@@ -51,16 +64,16 @@ export default function Table(props){
             name:"CURRENT PRICE",
             selector:"currentPrice"
         }
-    ])
+    ],)
 
 
 
     return(
         <Fragment>
-            {props.data && props.data.length >0 ?
+            
                 <Fragment>
                     <DataTable 
-                        data={props.data}
+                        data={ props.data}
                         columns={column}
                         noHeader
                         pagination
@@ -73,7 +86,7 @@ export default function Table(props){
                         onSelectedRowsChange={updateState}
                         style={{ borderRadius:'6px', boxShadow:' 0 2px 9px 0 rgba(40,44,51,0.26)'}}
                         />
-                </Fragment> :<div>Data Not found</div> }
+                </Fragment> 
 
         </Fragment>
     )
